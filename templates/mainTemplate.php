@@ -10,7 +10,7 @@
 
 <body>
 
-  <div id="topDiv" class="scafoldingDiv">
+<div id="topDiv" class="scafoldingDiv">
     <div id="headerMainDiv">
       <a href="index.php">Główna</a> |
       <a href="index.php?action=showSearchForm">Szukaj książki</a> |
@@ -31,7 +31,7 @@
   <div id="centerDiv" class="scafoldingDiv">
     <div id="mainContentDiv">
 
-      <?php if ($komunikat) : ?>
+    <?php if ($komunikat) : ?>
         <div class="komunikat"><?= $komunikat; ?></div>
       <?php endif; ?>
 
@@ -47,15 +47,16 @@
           break;
         case 'showSearchForm':
           //Wyświetlenie formularza rejestracyjnego
+          $portal->showSearchForm();
           break;
         case 'searchBook':
           //Wyszukanie książki
           $portal->showSearchForm();
-          $portal->showSearchResult();
-
+          $portal->showSearchResults();
           break;
         case 'showBookDetails':
           //Wyświetlenie szczegółowych informacji o książce
+          $portal->showBookDetails();
           break;
         case 'showBasket':
           //Wyświetlenie zawartości koszyka
@@ -68,9 +69,8 @@
           include 'templates/innerContentDiv.php';
       endswitch;
       ?>
-    </div>
   </div>
-
+  </div>
   <div id="footerDiv" class="scafoldingDiv">
     <p>Stopka strony</p>
   </div>
